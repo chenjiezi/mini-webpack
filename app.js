@@ -61,7 +61,7 @@ function bundle(graph) {
     function require (id) {
       const [ fn, mapping ] = modules[id]
       function localRequire (name) {
-        return require(modules[name])
+        return require(mapping[name])
       }
       const module = { exports: {} }
       fn(localRequire, module, module.exports)
